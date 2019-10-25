@@ -1,3 +1,11 @@
+1.打开reppel.html
+2.点击歌名播放音乐
+3.你可以再实现一个功能，再次点击歌名使其暂停播放
+4.8459108901
+5.123268
+6.891542
+7.eiufbLGRU
+8.aildhfLIHWOIQWLIRHBAJSD
 1.skFGUL
 2.IUSFDBP
 3.igabvd
