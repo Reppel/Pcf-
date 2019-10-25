@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="关键字">
+  <meta name="Description" content="">
+  <title>百度云音乐</title>
+  <style>
+*{margin:0;padding:0;}/*解决浏览器兼容*/
+body{background:url("https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/495.jpg");background-size:100% 140vh;}
+.music{width:720px;height:480px;background:#ccffff;margin:160px auto;}
+.music .m_lrc{width:50%;height:100%;background:#ff3399;float:left;}
+.music .m_lrc h2{height:60px;background:#ffff33;text-align:center;line-height:60px;font-size:20px;}
+.music .m_lrc .m_con{height:420px;background:url("images/3.gif");}
+
+
+
+.music .m_list{width:50%;height:100;background:#747474;float:right;overflow-y:auto;}
+
+.music .m_list ul li{list-style:none;color:#000000;line-height:36px;padding-left:18px;border-bottom:1px solid #ccccff;}
+.music .m_list ul li:hover{cursor:pointer;background:#ccffff;transition:0.3s;}/*cursor鼠标箭头，背景颜色，渐变background:-webkit-linear-gradient(45deg,#cc99ff,#990066,#cc9900,*/
+
+  </style>
+ </head>
+ <body>
+ <div class="music">
+ <div class="m_lrc">
+ <h2>Pcf云音乐</h2>
+ <div class="m_con"></div>
+ </div>
+
+ <div class="m_list">
+ <ul>
+ <li onclick="play(1)">阿冷 - 春风吹（Cover 方大同）</li>
+ <li onclick="play(2)">陈绮贞 - 送别</li>
+ <li onclick="play(3)">陈一发儿 - 童话镇</li>
+ <li onclick="play(4)">二珂 - 走在冷风中</li>
+ <li onclick="play(5)">冯提莫 - 我的一个道姑朋友 - 冯提莫</li>
+ <li onclick="play(6)">洛天依 - 海豚音</li>
+ <li onclick="play(7)">周二珂 - 匆匆那年</li>
+ <li onclick="play(8)">追光者</li>
+ <li>像风一样</li>
+ <li>别</li>
+ <li>我很愉快</li>
+ <li>追光者</li>
+ <li>reppel</li>
+ </ul>
+ </div>
+ </div>
+ //调用jquery库
+ <script stc="js/jQuery.js"></script>
+ 
+ <script>
+ //创建一个播放器
+ var audioDom = document.createElement("audio");
+ function play(name){
+ //设置播放函数
+ audioDom.src= "mp3/"+name+".mp3";
+ //地址传递
+ audioDom.autoplay = "autoplay";
+ //自动播放
+ }
+ play();
+ 
+
+ //调用函数自动播放，没传形参，所以无法自动播放
+ 
+ </script>
+  
+ </body>
+</html>
