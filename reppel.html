@@ -33,7 +33,7 @@ body{background:url("https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/495.jpg")
 
  <div class="m_list">
  <ul>
- <li onclick="play(1)">阿冷 - 春风吹（Cover 方大同）</li>
+ <li onclick="playMusic()">阿冷 - 春风吹（Cover 方大同）</li>
  <li onclick="play(2)">陈绮贞 - 送别</li>
  <li onclick="play(3)">陈一发儿 - 童话镇</li>
  <li onclick="play(4)">二珂 - 走在冷风中</li>
@@ -53,20 +53,49 @@ body{background:url("https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/495.jpg")
  <script stc="js/jQuery.js"></script>
  
  <script>
- //创建一个播放器
- var audioDom = document.createElement("audio");
- function play(name){
- //设置播放函数
- audioDom.src= "mp3/"+name+".mp3";
- //地址传递
- audioDom.autoplay = "autoplay";
- //自动播放
- }
- play();
- 
+   /*  var audioDom = document.createElement("audio");
+     function play(name){
+         //设置播放函数
+         audioDom.src= "mp3/"+name+".mp3";
+         //地址传递
+         audioDom.autoplay = "autoplay";
+         //自动播放
 
- //调用函数自动播放，没传形参，所以无法自动播放
- 
+     }
+     play();
+     */
+   window.onload = function(){
+       //存放音乐列表，根据音乐文件路径，进行填写
+       var musicList = ["mp3/"+1+".mp3","mp3/"+2+".mp3","mp3/"+3+".mp3","mp3/"+4+".mp3","mp3/"+5+".mp3","mp3/"+6+".mp3","mp3/"+7+".mp3","mp3/"+8+".mp3","mp3/"+9+".mp3"]
+       playMusic(musicList);
+   }
+     function playMusic(musicList){
+         var myAudio = new Audio();
+         //是否进行预加载
+         myAudio.preload = false;
+         //是否显示隐藏按钮
+         myAudio.controls = true;
+         myAudio.hidden = true;
+         //从音乐列表中，获取最后一个音乐（并删除）
+         var src = musicList.pop();
+         myAudio.src =src;
+         //将最后一个音乐添加到数组的开头，这样实现循环
+         musicList.unshift(src);
+         //绑定音乐结束事件，当音乐播放完成后，将会触发playEndedHandler方法
+         myAudio.addEventListener("ended",playEndedHandler,false);
+         //播放当前音乐
+         myAudio.play();
+         document.getElementById("m_list").appendChild(myAudio);
+         //将循环播放关闭，如果开启，将不能触发playEndedHandler方法，只能进行单曲循环
+         myAudio.loop = false;
+
+         function playEndedHandler(){
+             src = musicList.pop();
+             myAudio.src = src;
+             musicList.unshift(src);
+             myAudio.play();
+         }
+     }
  </script>
   
  </body>
